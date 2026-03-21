@@ -1,8 +1,8 @@
-name: Job Checker Bot
+name: AMT Result Checker Bot
 
 on:
   schedule:
-    - cron: "*/10 * * * *"   # runs every 10 minutes
+    - cron: "*/30 * * * *"
   workflow_dispatch:        # manual run button
 
 jobs:
@@ -26,3 +26,16 @@ jobs:
         #   BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         #   CHAT_ID: ${{ secrets.CHAT_ID }}
         run: python check.py
+
+      - name: Commit state files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if [[ -n "$(git status --porcelain seen_results.txt last_run.txt)" ]]; then
+            git add seen_results.txt last_run.txt
+            git commit -m "Update job checker state"
+            git push
+          else
+            echo "No changes"
+          fi
