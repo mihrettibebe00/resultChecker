@@ -148,7 +148,7 @@ def main():
 
     if new_posts:
         for post in new_posts:
-            message = f"✈️ New Result Posted:\n\n{post}"
+            message = f"✈️ New Result Posted:\n\n{post} \n\n\n\nhttps://corporate.ethiopianairlines.com/AboutEthiopian/careers/results"
             send_telegram(message)
             print("New:", post)
 
