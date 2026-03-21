@@ -36,7 +36,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           if [[ -n "$(git status --porcelain seen.json users.json)" ]]; then
-            git add seen_results.txt last_run.txt
+            git add seen.json users.json
             git commit -m "Update job checker state"
             git push
           else
