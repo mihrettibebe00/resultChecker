@@ -154,7 +154,8 @@ def main():
 
         save_new(amt_results)
     else:
-        print("No new AMT updates.")
+        # print("No new AMT updates.")
+        send_telegram("No update")
 
 if __name__ == "__main__":
     offset = None
