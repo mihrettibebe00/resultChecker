@@ -3,14 +3,11 @@ from bs4 import BeautifulSoup
 import json
 import time
 
-URL = "https://corporate.ethiopianairlines.com/AboutEthiopian/careers/results"  # replace if needed
+URL = "https://corporate.ethiopianairlines.com/AboutEthiopian/careers/results"
 BOT_TOKEN = "8781730368:AAE6SGnocTysJaBG2K0X8GJZh4NTKB3dddw"
-# CHAT_ID = "727744944"
-
-# KEYWORDS = ["A/C MAINTENANCE TECHNICIAN", "ADDIS ABABA"]
 
 KEYWORDS = [
-    ["A/C MAINTENANCE TECHNICIAN", "AMT"],
+    ["A/C MAINTENANCE TECHNICIAN", "AMT", "Pilot"],
     ["ADDIS ABABA"]
 ]
 
@@ -34,6 +31,8 @@ def add_user(chat_id):
     if chat_id not in users:
         users.append(chat_id)
         save_users(users)
+        return True   # new user added
+    return False      # user already exists
 
 # ----------------NEW SUB ---------------#
 
@@ -52,8 +51,8 @@ def handle_updates(offset=None):
         text = message.get("text", "")
 
         if text == "/start":
-            add_user(chat_id)
-            send_welcome(chat_id)
+            if add_user(chat_id)
+                send_welcome(chat_id)
 
     if updates["result"]:
         return updates["result"][-1]["update_id"] + 1
