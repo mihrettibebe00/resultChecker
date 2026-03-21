@@ -51,7 +51,7 @@ def handle_updates(offset=None):
         text = message.get("text", "")
 
         if text == "/start":
-            if add_user(chat_id)
+            if add_user(chat_id):
                 send_welcome(chat_id)
 
     if updates["result"]:
