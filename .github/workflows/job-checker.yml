@@ -1,5 +1,8 @@
 name: AMT Result Checker Bot
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: "*/30 * * * *"
