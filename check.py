@@ -8,7 +8,7 @@ BOT_TOKEN = "8781730368:AAE6SGnocTysJaBG2K0X8GJZh4NTKB3dddw"
 
 KEYWORDS = [
     ["A/C MAINTENANCE TECHNICIAN", "AMT", "Pilot"],
-    ["ADDIS ABABA"]
+    ["ADDIS ABABA", "Region"]
 ]
 
 USERS_FILE = "users.json"
