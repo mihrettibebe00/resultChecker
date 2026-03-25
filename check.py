@@ -63,7 +63,7 @@ def send_welcome(chat_id):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     requests.post(url, data={
         "chat_id": chat_id,
-        "text": "✅ You will receive AMT updates."
+        "text": "✅ You will receive AMT and PTS updates."
     })
 # ---------------------------------------#
 
